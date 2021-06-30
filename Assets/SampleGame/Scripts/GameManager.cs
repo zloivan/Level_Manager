@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.ThirdPerson;
 
 namespace SampleGame
@@ -17,10 +18,16 @@ namespace SampleGame
         private Objective _objective;
 
         private bool _isGameOver;
+        private bool _isObjectiveNotNull;
         public bool IsGameOver { get { return _isGameOver; } }
 
 
         // initialize references
+        private void Start()
+        {
+            _isObjectiveNotNull = _objective != null;
+        }
+
         private void Awake()
         {
             _player = Object.FindObjectOfType<ThirdPersonCharacter>();
@@ -31,6 +38,9 @@ namespace SampleGame
         // end the level
         public void EndLevel()
         {
+            //mylogs Probably remove this later
+            if (Debug.isDebugBuild) Debug.Log($"<color=purple>End Game Called</color>");
+
             if (_player != null)
             {
                 // disable the player controls
@@ -58,13 +68,15 @@ namespace SampleGame
             {
                 _isGameOver = true;
                 _goalEffect.PlayEffect();
+                
+                SceneManager.LoadScene("Level2");
             }
         }
 
         // check for the end game condition on each frame
         private void Update()
         {
-            if (_objective != null & _objective.IsComplete)
+            if (_isObjectiveNotNull & _objective.IsComplete)
             {
                 EndLevel();
             }
