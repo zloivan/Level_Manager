@@ -21,25 +21,27 @@ namespace SampleGame
         }
 
         // find all of the ParticleSystem components and play
-        IEnumerator PlayEffectRoutine()
+        private IEnumerator PlayEffectRoutine()
         {
             // wait for a delay
             yield return new WaitForSeconds(_delay);
 
             // find ParticleSystems under the top transform
-            if (_particleEffectXform != null)
+            if (_particleEffectXform == null)
             {
-                ParticleSystem[] particleSystems = 
-                    _particleEffectXform.GetComponentsInChildren<ParticleSystem>();
+                yield break;
+            }
+            
+            var particleSystems = 
+                _particleEffectXform.GetComponentsInChildren<ParticleSystem>();
                 
-                // stop and play each ParticleSystem
-                foreach (ParticleSystem ps in particleSystems)
+            // stop and play each ParticleSystem
+            foreach (var ps in particleSystems)
+            {
+                if (ps != null)
                 {
-                    if (ps != null)
-                    {
-                        ps.Stop();
-                        ps.Play();  
-                    }
+                    ps.Stop();
+                    ps.Play();  
                 }
             }
         }
