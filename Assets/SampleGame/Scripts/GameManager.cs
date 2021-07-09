@@ -21,7 +21,9 @@ namespace SampleGame
         private bool _isObjectiveNotNull;
         public bool IsGameOver { get { return _isGameOver; } }
 
-
+        [SerializeField] private string _levelName = "Level2";
+        [SerializeField] private int _levelIndex = 0;
+        
         // initialize references
         private void Start()
         {
@@ -30,11 +32,11 @@ namespace SampleGame
 
         private void Awake()
         {
-            _player = Object.FindObjectOfType<ThirdPersonCharacter>();
-            _objective = Object.FindObjectOfType<Objective>();
-            _goalEffect = Object.FindObjectOfType<GoalEffect>();
+            _player = FindObjectOfType<ThirdPersonCharacter>();
+            _objective = FindObjectOfType<Objective>();
+            _goalEffect = FindObjectOfType<GoalEffect>();
         }
-
+        
         // end the level
         public void EndLevel()
         {
@@ -64,14 +66,53 @@ namespace SampleGame
             }
 
             // check if we have set IsGameOver to true, only run this logic once
+            
             if (_goalEffect != null && !_isGameOver)
             {
                 _isGameOver = true;
                 _goalEffect.PlayEffect();
-                
-                SceneManager.LoadScene("Level2");
+
+                LoadLevel(_levelIndex);
             }
         }
+
+        private static void LoadLevel(string sceneName)
+        {
+            var isSceneValid = Application.CanStreamedLevelBeLoaded(sceneName);
+
+            if (isSceneValid)
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+            else
+            {
+                Debug.LogWarning("GAMEMANAGER LoadLevel Error: Invalid scene name!");
+            }
+            
+        }
+        
+        private static void LoadLevel(int sceneIndex)
+        {
+            if (sceneIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                SceneManager.LoadScene(sceneIndex);
+            }
+            else
+            {
+                Debug.LogWarning("GAMEMANAGER LoadLevel Error: Invalid scene index!");
+            }
+        }
+
+        private void LoadNextLevel()
+        {
+            var activeScene = SceneManager.GetActiveScene();
+            var currentSceneIndex = activeScene.buildIndex;
+
+            var nextSceneIndex = currentSceneIndex + 1 % SceneManager.sceneCount;
+            
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        
 
         // check for the end game condition on each frame
         private void Update()
