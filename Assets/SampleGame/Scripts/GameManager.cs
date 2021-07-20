@@ -76,7 +76,7 @@ namespace SampleGame
             }
         }
 
-        private static void LoadLevel(string sceneName)
+        public static void LoadLevel(string sceneName)
         {
             var isSceneValid = Application.CanStreamedLevelBeLoaded(sceneName);
 
@@ -91,7 +91,7 @@ namespace SampleGame
             
         }
         
-        private static void LoadLevel(int sceneIndex)
+        public static void LoadLevel(int sceneIndex)
         {
             if (sceneIndex < SceneManager.sceneCountInBuildSettings)
             {
@@ -103,12 +103,12 @@ namespace SampleGame
             }
         }
 
-        private void LoadNextLevel()
+        public void LoadNextLevel()
         {
             var activeScene = SceneManager.GetActiveScene();
             var currentSceneIndex = activeScene.buildIndex;
 
-            var nextSceneIndex = currentSceneIndex + 1 % SceneManager.sceneCount;
+            var nextSceneIndex = currentSceneIndex + 1 % SceneManager.sceneCountInBuildSettings;
             
             SceneManager.LoadScene(nextSceneIndex);
         }
