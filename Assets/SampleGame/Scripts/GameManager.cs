@@ -117,7 +117,7 @@ namespace SampleGame
         // check for the end game condition on each frame
         private void Update()
         {
-            if (_isObjectiveNotNull & _objective.IsComplete)
+            if (_isObjectiveNotNull && _objective.IsComplete)
             {
                 EndLevel();
             }
