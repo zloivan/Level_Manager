@@ -3,7 +3,7 @@
 --- !u!1 &9189469121384378530
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1187115834063456, guid: cb667a0d744d84e1ba3fdf517aaf9887, type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
@@ -21,12 +21,12 @@ GameObject:
 --- !u!4 &9189469121384378531
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4964444321153712, guid: cb667a0d744d84e1ba3fdf517aaf9887, type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9189469121384378530}
   m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: -5, y: 35, z: -20}
+  m_LocalPosition: {x: -2.91, y: 48.4, z: -27.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -35,7 +35,7 @@ Transform:
 --- !u!20 &9189469121384378533
 Camera:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 20722806093358548, guid: cb667a0d744d84e1ba3fdf517aaf9887, type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9189469121384378530}
@@ -57,7 +57,7 @@ Camera:
     height: 1
   near clip plane: 1
   far clip plane: 4000
-  field of view: 20.8
+  field of view: 29
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -78,7 +78,7 @@ Camera:
 --- !u!81 &9189469121384378532
 AudioListener:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 81200812324036314, guid: cb667a0d744d84e1ba3fdf517aaf9887, type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9189469121384378530}
