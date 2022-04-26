@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -16,10 +14,12 @@ namespace SampleGame
         [SerializeField] private float _delay = 1f;
 
         private ParticleSystem[] _particleSystems;
+        private AudioSource[] _audioSources;
 
         private void Awake()
         {
             _particleSystems = _particleEffectXform.GetComponentsInChildren<ParticleSystem>();
+            _audioSources = _particleEffectXform.GetComponentsInChildren<AudioSource>();
         }
 
         public void PlayEffect()
@@ -42,7 +42,13 @@ namespace SampleGame
                 if (ps == null) continue;
 
                 ps.Stop();
-                ps.Play();
+                ps.Play(false);
+            }
+
+            foreach (var audioSource in _audioSources)
+            {
+                audioSource.Stop();
+                audioSource.Play();
             }
         }
     }

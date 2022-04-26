@@ -509,6 +509,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 864893580622002347, guid: 02d7f7b076280469f9cf59647eac72ff, type: 3}
+      propertyPath: _particleEffectXform
+      value: 
+      objectReference: {fileID: 376131531}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02d7f7b076280469f9cf59647eac72ff, type: 3}
 --- !u!4 &1946083889 stripped

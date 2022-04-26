@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 864893580622002347, guid: 4e71d724619364cd086927294e1f37ec, type: 3}
+      propertyPath: _particleEffectXform
+      value: 
+      objectReference: {fileID: 376131531}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e71d724619364cd086927294e1f37ec, type: 3}
 --- !u!4 &620037201 stripped
@@ -949,6 +953,22 @@ PrefabInstance:
     - target: {fileID: 8209947700716683274, guid: a85c93b6ab53e4955860a22bf60c8a72, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209947701926418513, guid: a85c93b6ab53e4955860a22bf60c8a72, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209947701926418515, guid: a85c93b6ab53e4955860a22bf60c8a72, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209947701926418517, guid: a85c93b6ab53e4955860a22bf60c8a72, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209947701926418523, guid: a85c93b6ab53e4955860a22bf60c8a72, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a85c93b6ab53e4955860a22bf60c8a72, type: 3}
