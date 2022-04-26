@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace SampleGame
@@ -8,39 +10,39 @@ namespace SampleGame
     public class GoalEffect : MonoBehaviour
     {
         // top transform of the ParticleSystems
-        [SerializeField]
-        private Transform _particleEffectXform;
+        [SerializeField] private Transform _particleEffectXform;
 
         // delay before particles trigger
-        [SerializeField]
-        private float _delay = 1f;
+        [SerializeField] private float _delay = 1f;
+
+        private ParticleSystem[] _particleSystems;
+
+        private void Awake()
+        {
+            _particleSystems = _particleEffectXform.GetComponentsInChildren<ParticleSystem>();
+        }
 
         public void PlayEffect()
         {
-            StartCoroutine(PlayEffectRoutine());
+            PlayEffectAsync();
         }
 
-        // find all of the ParticleSystem components and play
-        IEnumerator PlayEffectRoutine()
+        private async void PlayEffectAsync()
         {
             // wait for a delay
-            yield return new WaitForSeconds(_delay);
+            await UniTask.Delay(TimeSpan.FromSeconds(_delay));
 
             // find ParticleSystems under the top transform
-            if (_particleEffectXform != null)
+            if (_particleEffectXform == null) return;
+
+
+            // stop and play each ParticleSystem
+            foreach (var ps in _particleSystems)
             {
-                ParticleSystem[] particleSystems = 
-                    _particleEffectXform.GetComponentsInChildren<ParticleSystem>();
-                
-                // stop and play each ParticleSystem
-                foreach (ParticleSystem ps in particleSystems)
-                {
-                    if (ps != null)
-                    {
-                        ps.Stop();
-                        ps.Play();  
-                    }
-                }
+                if (ps == null) continue;
+
+                ps.Stop();
+                ps.Play();
             }
         }
     }

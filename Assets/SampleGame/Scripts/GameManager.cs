@@ -17,25 +17,32 @@ namespace SampleGame
         private Objective _objective;
 
         private bool _isGameOver;
-        public bool IsGameOver { get { return _isGameOver; } }
+        public bool IsGameOver => _isGameOver;
 
 
         // initialize references
         private void Awake()
         {
-            _player = Object.FindObjectOfType<ThirdPersonCharacter>();
-            _objective = Object.FindObjectOfType<Objective>();
-            _goalEffect = Object.FindObjectOfType<GoalEffect>();
+            _player = FindObjectOfType<ThirdPersonCharacter>();
+            _objective = FindObjectOfType<Objective>();
+            _goalEffect = FindObjectOfType<GoalEffect>();
         }
 
         // end the level
-        public void EndLevel()
+        private void Update()
+        {
+            if (_objective != null & _objective.IsComplete)
+            {
+                EndLevel();
+            }
+        }
+
+        private void EndLevel()
         {
             if (_player != null)
             {
                 // disable the player controls
-                ThirdPersonUserControl thirdPersonControl =
-                    _player.GetComponent<ThirdPersonUserControl>();
+                var thirdPersonControl = _player.GetComponent<ThirdPersonUserControl>();
 
                 if (thirdPersonControl != null)
                 {
@@ -43,7 +50,7 @@ namespace SampleGame
                 }
 
                 // remove any existing motion on the player
-                Rigidbody rbody = _player.GetComponent<Rigidbody>();
+                var rbody = _player.GetComponent<Rigidbody>();
                 if (rbody != null)
                 {
                     rbody.velocity = Vector3.zero;
@@ -54,21 +61,12 @@ namespace SampleGame
             }
 
             // check if we have set IsGameOver to true, only run this logic once
-            if (_goalEffect != null && !_isGameOver)
-            {
-                _isGameOver = true;
-                _goalEffect.PlayEffect();
-            }
+            if (_goalEffect == null || _isGameOver) return;
+
+            _isGameOver = true;
+            _goalEffect.PlayEffect();
         }
 
         // check for the end game condition on each frame
-        private void Update()
-        {
-            if (_objective != null & _objective.IsComplete)
-            {
-                EndLevel();
-            }
-        }
-
     }
 }
