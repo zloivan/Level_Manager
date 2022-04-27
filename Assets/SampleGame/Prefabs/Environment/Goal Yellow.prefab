@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 566d9d04008c346789ca2b7b3cc37c2f, type: 2}
+  - {fileID: 2100000, guid: 53e224e722ef043b3a4428d5b7c1a307, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1809327560748345310, guid: 5b94a63db2f1049d6a31393d49528a07, type: 3}
       propertyPath: m_Name
-      value: Goal Red
+      value: Goal Yellow
       objectReference: {fileID: 0}
     - target: {fileID: 1809327560748514302, guid: 5b94a63db2f1049d6a31393d49528a07, type: 3}
       propertyPath: m_RootOrder

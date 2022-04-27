@@ -1,17 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityStandardAssets.Characters.ThirdPerson;
 
 namespace SampleGame
 {
     public class GameManager : MonoBehaviour
     {
+        [FormerlySerializedAs("_sceneName")] [SerializeField]
+        private string _levelName;
+
         // reference to player
         private ThirdPersonCharacter _player;
 
+
         // reference to goal effect
         private GoalEffect _goalEffect;
+
 
         // reference to player
         private Objective _objective;
@@ -65,8 +71,58 @@ namespace SampleGame
 
             _isGameOver = true;
             _goalEffect.PlayEffect();
+            if (_useDirectSceneName)
+            {
+                LoadLevel(_levelName);
+            }
+            else
+            {
+                LoadNextLevel();
+            }
         }
 
-        // check for the end game condition on each frame
+        private void LoadLevel(string levelName)
+        {
+            if (Application.CanStreamedLevelBeLoaded(levelName))
+            {
+                SceneManager.LoadScene(levelName);
+            }
+            else
+            {
+                Debug.LogWarning("GAMEMANAGER LoadLevel Error: Invalid level name is specified!", this);
+            }
+        }
+
+        private void LoadLevel(int levelIndex)
+        {
+            if (levelIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                SceneManager.LoadScene(levelIndex);
+            }
+            else
+            {
+                Debug.LogWarning("GAMEMANAGER LoadLevel Error: Invalid level index is specified!", this);
+            }
+        }
+
+        [SerializeField] private bool _useDirectSceneName;
+
+        private void LoadNextLevel()
+        {
+            var currentIndex = SceneManager.GetActiveScene().buildIndex;
+
+            var nextSceneIndex = currentIndex + 1;
+
+            var totalNumberOfScenes = SceneManager.sceneCountInBuildSettings;
+
+            nextSceneIndex %= totalNumberOfScenes;
+
+            LoadLevel(nextSceneIndex);
+        }
+
+        private void ReloadLevel()
+        {
+            LoadLevel(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
