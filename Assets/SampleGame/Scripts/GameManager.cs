@@ -11,6 +11,8 @@ namespace SampleGame
         [FormerlySerializedAs("_sceneName")] [SerializeField]
         private string _levelName;
 
+        [SerializeField] private bool _useDirectSceneName;
+
         // reference to player
         private ThirdPersonCharacter _player;
 
@@ -27,6 +29,7 @@ namespace SampleGame
 
 
         // initialize references
+
         private void Awake()
         {
             _player = FindObjectOfType<ThirdPersonCharacter>();
@@ -35,9 +38,10 @@ namespace SampleGame
         }
 
         // end the level
+
         private void Update()
         {
-            if (_objective != null & _objective.IsComplete)
+            if (_objective != null && _objective.IsComplete)
             {
                 EndLevel();
             }
@@ -81,7 +85,7 @@ namespace SampleGame
             }
         }
 
-        private void LoadLevel(string levelName)
+        public void LoadLevel(string levelName)
         {
             if (Application.CanStreamedLevelBeLoaded(levelName))
             {
@@ -93,7 +97,7 @@ namespace SampleGame
             }
         }
 
-        private void LoadLevel(int levelIndex)
+        public void LoadLevel(int levelIndex)
         {
             if (levelIndex < SceneManager.sceneCountInBuildSettings)
             {
@@ -105,9 +109,7 @@ namespace SampleGame
             }
         }
 
-        [SerializeField] private bool _useDirectSceneName;
-
-        private void LoadNextLevel()
+        public void LoadNextLevel()
         {
             var currentIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -120,7 +122,7 @@ namespace SampleGame
             LoadLevel(nextSceneIndex);
         }
 
-        private void ReloadLevel()
+        public void ReloadLevel()
         {
             LoadLevel(SceneManager.GetActiveScene().buildIndex);
         }
