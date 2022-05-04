@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -27,14 +28,34 @@ namespace SampleGame
         private bool _isGameOver;
         public bool IsGameOver => _isGameOver;
 
+        private static GameManager _instance;
+
+        public static GameManager Instance => _instance;
 
         // initialize references
 
         private void Awake()
         {
+            if (_instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            _instance = this;
+
+
             _player = FindObjectOfType<ThirdPersonCharacter>();
             _objective = FindObjectOfType<Objective>();
             _goalEffect = FindObjectOfType<GoalEffect>();
+        }
+
+        private void OnDestroy()
+        {
+            if (_instance == this)
+            {
+                _instance = null;
+            }
         }
 
         // end the level
