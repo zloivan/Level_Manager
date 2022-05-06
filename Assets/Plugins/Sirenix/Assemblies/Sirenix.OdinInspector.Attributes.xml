@@ -369,23 +369,34 @@
         </member>
         <member name="F:Sirenix.OdinInspector.ButtonAttribute.Expanded">
             <summary>
-            If the button contains parameters, you can disable the foldout it creates by setting this to true.
+                If the button contains parameters, you can disable the foldout it creates by setting this to true.
             </summary>
         </member>
         <member name="F:Sirenix.OdinInspector.ButtonAttribute.DisplayParameters">
             <summary>
-            <para>Whether to display the button method's parameters (if any) as values in the inspector. True by default.</para>
-            <para>If this is set to false, the button method will instead be invoked through an ActionResolver or ValueResolver (based on whether it returns a value), giving access to contextual named parameter values like "InspectorProperty property" that can be passed to the button method.</para>
+                <para>Whether to display the button method's parameters (if any) as values in the inspector. True by
+                    default.
+                </para>
+                <para>If this is set to false, the button method will instead be invoked through an ActionResolver or
+                    ValueResolver (based on whether it returns a value), giving access to contextual named parameter
+                    values like "InspectorProperty property" that can be passed to the button method.
+                </para>
+            </summary>
+        </member>
+        <member name="F:Sirenix.OdinInspector.ButtonAttribute.DirtyOnClick">
+            <summary>
+                Whether the containing object or scene (if there is one) should be marked dirty when the button is
+                clicked. True by default.
             </summary>
         </member>
         <member name="P:Sirenix.OdinInspector.ButtonAttribute.DrawResult">
             <summary>
-            If the button has a return type, set this to false to not draw the result. Default value is true.
+                If the button has a return type, set this to false to not draw the result. Default value is true.
             </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.ButtonAttribute.#ctor">
             <summary>
-            Creates a button in the inspector named after the method.
+                Creates a button in the inspector named after the method.
             </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.ButtonAttribute.#ctor(Sirenix.OdinInspector.ButtonSizes)">
@@ -2592,22 +2603,27 @@
         </member>
         <member name="F:Sirenix.OdinInspector.DictionaryDrawerSettings.DisplayMode">
             <summary>
-            Specify how the dictionary should draw its items.
+                Specify how the dictionary should draw its items.
             </summary>
         </member>
         <member name="F:Sirenix.OdinInspector.DictionaryDrawerSettings.IsReadOnly">
             <summary>
-            Gets or sets a value indicating whether this instance is read only.
+                Gets or sets a value indicating whether this instance is read only.
+            </summary>
+        </member>
+        <member name="F:Sirenix.OdinInspector.DictionaryDrawerSettings.KeyColumnWidth">
+            <summary>
+                Gets or sets a value indicating the default key column width of the dictionary.
             </summary>
         </member>
         <member name="T:Sirenix.OdinInspector.DisableContextMenuAttribute">
             <summary>
-            <para>DisableContextMenu is used on any property and disables the context menu for that property.</para>
-            <para>Use this if you do not want the context menu to be available for a property.</para>
+                <para>DisableContextMenu is used on any property and disables the context menu for that property.</para>
+                <para>Use this if you do not want the context menu to be available for a property.</para>
             </summary>
             <example>
-            <para>The following example shows how DisableContextMenu is used on a property.</para>
-            <code>
+                <para>The following example shows how DisableContextMenu is used on a property.</para>
+                <code>
             public class MyComponent : MonoBehaviour
             {
             	[DisableContextMenu]
@@ -4055,22 +4071,31 @@
         </member>
         <member name="F:Sirenix.OdinInspector.ListDrawerSettingsAttribute.AlwaysAddDefaultValue">
             <summary>
-            If true, object/type pickers will never be shown when the list add button is clicked, and default(T) will always be added instantly instead, where T is the element type of the list.
+                If true, object/type pickers will never be shown when the list add button is clicked, and default(T)
+                will always be added instantly instead, where T is the element type of the list.
             </summary>
         </member>
         <member name="F:Sirenix.OdinInspector.ListDrawerSettingsAttribute.AddCopiesLastElement">
             <summary>
-            Whether adding a new element should copy the last element. False by default.
+                Whether adding a new element should copy the last element. False by default.
+            </summary>
+        </member>
+        <member name="F:Sirenix.OdinInspector.ListDrawerSettingsAttribute.ElementColor">
+            <summary>
+                A resolved string with "int index" and "Color defaultColor" parameters that lets you control the color
+                of individual elements.
             </summary>
         </member>
         <member name="P:Sirenix.OdinInspector.ListDrawerSettingsAttribute.ShowPaging">
             <summary>
-            Override the default setting specified in the Advanced Odin Preferences window and explicitly tell whether paging should be enabled or not.
+                Override the default setting specified in the Advanced Odin Preferences window and explicitly tell
+                whether paging should be enabled or not.
             </summary>
         </member>
         <member name="P:Sirenix.OdinInspector.ListDrawerSettingsAttribute.DraggableItems">
             <summary>
-            Override the default setting specified in the Advanced Odin Preferences window and explicitly tell whether items should be draggable or not.
+                Override the default setting specified in the Advanced Odin Preferences window and explicitly tell
+                whether items should be draggable or not.
             </summary>
         </member>
         <member name="P:Sirenix.OdinInspector.ListDrawerSettingsAttribute.NumberOfItemsPerPage">
@@ -4955,23 +4980,31 @@
         </member>
         <member name="F:Sirenix.OdinInspector.ValueDropdownAttribute.SortDropdownItems">
             <summary>
-            False by default.
+                False by default.
             </summary>
         </member>
         <member name="F:Sirenix.OdinInspector.ValueDropdownAttribute.HideChildProperties">
             <summary>
-            Whether to draw all child properties in a foldout.
+                Whether to draw all child properties in a foldout.
+            </summary>
+        </member>
+        <member name="F:Sirenix.OdinInspector.ValueDropdownAttribute.CopyValues">
+            <summary>
+                Whether values selected by the value dropdown should be copies of the original or references (in the
+                case of reference types). Defaults to true.
             </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.ValueDropdownAttribute.#ctor(System.String)">
             <summary>
-            Creates a dropdown menu for a property.
+                Creates a dropdown menu for a property.
             </summary>
-            <param name="valuesGetter">A resolved string that should evaluate to a value that is assignable to IList; e.g, arrays and lists are compatible.</param>
+            <param name="valuesGetter">A resolved string that should evaluate to a value that is assignable to IList;
+                e.g, arrays and lists are compatible.
+            </param>
         </member>
         <member name="T:Sirenix.OdinInspector.IValueDropdownItem">
             <summary>
-            
+
             </summary>
         </member>
         <member name="M:Sirenix.OdinInspector.IValueDropdownItem.GetText">
@@ -5523,9 +5556,13 @@
             Default message for invalid values.
             </summary>
         </member>
-        <member name="F:Sirenix.OdinInspector.ValidateInputAttribute.MemberName">
+        <member name="P:Sirenix.OdinInspector.ValidateInputAttribute.MemberName">
             <summary>
-            Name of callback function to validate input. The function must have at least one parameter of the same type as the property.
+                OBSOLETE; use the Condition member instead.
+                A resolved string that should evaluate to a boolean value, and which should validate the input. Note
+                that in expressions, the $value named parameter, and in methods, a parameter named value, can be used to
+                get the validated value instead of referring to the value by its containing member. This makes it easier
+                to reuse validation strings.
             </summary>
         </member>
         <member name="F:Sirenix.OdinInspector.ValidateInputAttribute.Condition">
