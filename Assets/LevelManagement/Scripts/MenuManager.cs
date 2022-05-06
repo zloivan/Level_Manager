@@ -1,42 +1,55 @@
-using System;
 using System.Collections.Generic;
+using LevelManagement.Menus;
 using UnityEngine;
 
-namespace LevelManagment
+namespace LevelManagement
 {
     public class MenuManager : MonoBehaviour
     {
-        [SerializeField] private Menu _mainMenu;
-        [Space] [SerializeField] private Menu _settingsMenu;
-        [SerializeField] private Menu _creditsMenu;
+        #region SerielizedFields
 
+        [SerializeField] private MainMenu _mainMenuPrefab;
 
+        [Space] [SerializeField] private SettingsMenu _settingsMenuPrefab;
+        [SerializeField] private CreditsMenu _creditsMenuPrefab;
         [SerializeField] private Transform _menuParent;
 
-        private static MenuManager _instance;
-        public static MenuManager Instance => _instance;
+        #endregion
+
+
+        #region Fields
 
         private readonly Stack<Menu> _menusStack = new Stack<Menu>();
+
+        #endregion
+
+
+        #region Properties
+
+        private static MenuManager instance;
+        public static MenuManager Instance => instance;
+
+        #endregion
 
 
         private void Awake()
         {
-            if (_instance != null)
+            if (instance != null)
             {
                 Destroy(gameObject);
                 return;
             }
 
 
-            _instance = this;
+            instance = this;
             Initialize();
         }
 
         private void OnDestroy()
         {
-            if (_instance == this)
+            if (instance == this)
             {
-                _instance = null;
+                instance = null;
             }
         }
 
@@ -48,7 +61,7 @@ namespace LevelManagment
                 _menuParent = parent.transform;
             }
 
-            var menuPrefabs = new[] {_settingsMenu, _mainMenu, _creditsMenu};
+            Menu[] menuPrefabs = {_settingsMenuPrefab, _mainMenuPrefab, _creditsMenuPrefab};
 
             foreach (var prefab in menuPrefabs)
             {
@@ -57,7 +70,7 @@ namespace LevelManagment
 
                 var menuInstance = Instantiate(prefab, _menuParent);
 
-                if (prefab == _mainMenu)
+                if (prefab == _mainMenuPrefab)
                 {
                     OpenMenu(menuInstance);
                 }

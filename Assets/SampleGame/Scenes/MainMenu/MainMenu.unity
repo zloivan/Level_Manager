@@ -198,9 +198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee3673dd76fc47358bf686c799ad001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainMenu: {fileID: 9085696020675097941, guid: 0d3349f23fb3b46959678ba9732ec580, type: 3}
-  _settingsMenu: {fileID: -1820482880152883094, guid: 3bd13482048014d668a2746dc91df14a, type: 3}
-  _creditsMenu: {fileID: -714147904057981256, guid: 01d672a2cf7914f3b9796d88335f79df, type: 3}
+  _mainMenuPrefab: {fileID: -1383081974353708629, guid: 0d3349f23fb3b46959678ba9732ec580, type: 3}
+  _settingsMenuPrefab: {fileID: -8500246001556026108, guid: 3bd13482048014d668a2746dc91df14a, type: 3}
+  _creditsMenuPrefab: {fileID: 7549335327249311154, guid: 01d672a2cf7914f3b9796d88335f79df, type: 3}
   _menuParent: {fileID: 239559654}
 --- !u!1 &1375437905
 GameObject:
