@@ -19,7 +19,7 @@ Shader "Custom/DataTypes"
             fixed3 MyColor2;
     
             fixed3x3 MyColorHolder;
-            
+
             void Surf(Input isMeshInfo, inout SurfaceOutput outSurfaceInfo)
             {
                 MyColorHolder[0] = MyColor1.rgb;
