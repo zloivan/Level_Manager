@@ -17,16 +17,16 @@ Shader "Custom/MyFirstShader"
                 float2 uv_MainTex;
             };
     
-            fixed4 _BodyColor;
-            fixed4 _EmissionColor;
-            fixed4 _NormalColor;
+            fixed4 _bodyColor;
+            fixed4 _emissionColor;
+            fixed4 _normalColor;
     
     
-            void surf(Input IN, inout SurfaceOutput o)
+            void surf(Input inMeshData, inout SurfaceOutput outSurfaceData)
             {
-                o.Albedo = _BodyColor.rgb;
-                o.Emission = _EmissionColor.rgb;
-                o.Normal = _NormalColor.rgb;
+                outSurfaceData.Albedo = _bodyColor.rgb;
+                outSurfaceData.Emission = _emissionColor.rgb;
+                outSurfaceData.Normal = _normalColor.rgb;
             }
         ENDCG
     }

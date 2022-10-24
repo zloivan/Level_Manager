@@ -2,8 +2,8 @@ Shader "Custom/DataTypes"
 {
     Properties
     {
-        MyColor1 ("My Color 1", color) = (1,1,1,1)
-        MyColor2 ("My Color 2", color) = (1,1,1,1)
+        _myColor1 ("My Color 1", color) = (1,1,1,1)
+        _myColor2 ("My Color 2", color) = (1,1,1,1)
     }
     SubShader
     {
@@ -15,22 +15,22 @@ Shader "Custom/DataTypes"
                float2 uv_MainTex;
             };
 
-            fixed4 MyColor1;
-            fixed3 MyColor2;
+            fixed4 _myColor1;
+            fixed3 _myColor2;
     
-            fixed3x3 MyColorHolder;
+            fixed3x3 _myColorHolder;
 
             void Surf(Input isMeshInfo, inout SurfaceOutput outSurfaceInfo)
             {
-                MyColorHolder[0] = MyColor1.rgb;
-                MyColorHolder[1] = MyColor2;
+                _myColorHolder[0] = _myColor1.rgb;
+                _myColorHolder[1] = _myColor2;
     
                 
-                outSurfaceInfo.Albedo = MyColorHolder[0];
-                outSurfaceInfo.Emission = MyColorHolder[1];
+                outSurfaceInfo.Albedo = _myColorHolder[0];
+                outSurfaceInfo.Emission = _myColorHolder[1];
     
     
-                outSurfaceInfo.Alpha = MyColor1.a;
+                outSurfaceInfo.Alpha = _myColor1.a;
             }
         ENDCG
     }
