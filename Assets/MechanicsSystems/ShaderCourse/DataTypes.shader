@@ -10,9 +10,9 @@ Shader "Custom/DataTypes"
         CGPROGRAM
             #pragma surface Surf Lambert
 
-            struct Input
+            struct Input // RESERVED STRUCT NAME!!
             {
-               float2 uv_MainTex;
+               float2 uv_MainTex; // RESERVED FIELD NAME!!
             };
 
             fixed4 _myColor1;
@@ -20,17 +20,17 @@ Shader "Custom/DataTypes"
     
             fixed3x3 _myColorHolder;
 
-            void Surf(Input isMeshInfo, inout SurfaceOutput outSurfaceInfo)
+            void Surf(Input inMeshData, inout SurfaceOutput outSurfaceData)
             {
                 _myColorHolder[0] = _myColor1.rgb;
                 _myColorHolder[1] = _myColor2;
     
                 
-                outSurfaceInfo.Albedo = _myColorHolder[0];
-                outSurfaceInfo.Emission = _myColorHolder[1];
+                outSurfaceData.Albedo = _myColorHolder[0];
+                outSurfaceData.Emission = _myColorHolder[1];
     
     
-                outSurfaceInfo.Alpha = _myColor1.a;
+                outSurfaceData.Alpha = _myColor1.a;
             }
         ENDCG
     }
