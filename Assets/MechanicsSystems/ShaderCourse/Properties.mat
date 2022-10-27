@@ -18,10 +18,42 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 3f8e7a26ea8910b4e973de52b5863cf9, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _dd:
+        m_Texture: {fileID: 2800000, guid: 3f8e7a26ea8910b4e973de52b5863cf9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _my:
+        m_Texture: {fileID: 2800000, guid: 3f8e7a26ea8910b4e973de52b5863cf9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _myCube:
+        m_Texture: {fileID: 8900000, guid: 0bbd9f1cad45b5b4dbf82b2bf4381dbc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _myTex:
+        m_Texture: {fileID: 2800000, guid: 79ebc05f9cf3441dd81c2e8022a3bdbd, type: 3}
+        m_Scale: {x: 1.01, y: 1.07}
+        m_Offset: {x: 0, y: 0}
+    - _myTexture:
+        m_Texture: {fileID: 2800000, guid: 3f8e7a26ea8910b4e973de52b5863cf9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _tt:
+        m_Texture: {fileID: 2800000, guid: 3f8e7a26ea8910b4e973de52b5863cf9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _float: 0
+    - _halfFromRange: 2.11
     - _intFrom: 1
+    - _skyMultiplier: 0
+    - _textureMultiplier: 1
     m_Colors:
-    - _color: {r: 1, g: 1, b: 1, a: 1}
+    - _color: {r: 0.29479426, g: 0.49056602, b: 0.2244571, a: 1}
+    - _vectorExample: {r: 0.1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
