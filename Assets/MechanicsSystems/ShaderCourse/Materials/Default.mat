@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DataTypes
-  m_Shader: {fileID: 4800000, guid: 5b4fc6e1ebc7d5a4983e2cd3ecbe081b, type: 3}
-  m_ShaderKeywords: 
+  m_Name: Default
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,12 +20,12 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: ac320de5c17f9374682ce0d7592d9663, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 6, y: 6}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
         m_Texture: {fileID: 0}
@@ -37,11 +37,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 6, y: 6}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: f46a22e068210224792ce703d8fc5c4e, type: 3}
+        m_Scale: {x: 6, y: 6}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -61,11 +61,10 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
-    - _MySliderValue: 10
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -74,15 +73,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - MyColor: {r: 0.1981132, g: 0.13176396, b: 0.13176396, a: 1}
-    - MyColor1: {r: 0.3201876, g: 0.6792453, b: 0.253115, a: 1}
-    - MyColor2: {r: 0.5333191, g: 0.5849056, b: 0.40005338, a: 1}
-    - MyColor3: {r: 1, g: 1, b: 1, a: 1}
-    - _AmbientColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BodyColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 0.08342969, b: 0, a: 1}
-    - _EmissionColor: {r: 1, g: 0, b: 0, a: 1}
-    - _NormalColor: {r: 0.8117647, g: 0.654902, b: 0.654902, a: 1}
-    - _myColor1: {r: 0.4716981, g: 0.31372374, b: 0.31372374, a: 1}
-    - _myColor2: {r: 0.754717, g: 0.23139909, b: 0.23139909, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}
   m_BuildTextureStacks: []

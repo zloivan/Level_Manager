@@ -6,7 +6,6 @@ Shader "Custom/Properties"
         _diffuseMultiplier ("Diffuse Multiplier", Range(0,5)) = 1
         _myEmission ("Emission", 2D) = "black" {}
         _emittionMultiplier ("Emission Multiplier", Range(0,5)) = 1
-        
     }
     SubShader
     {

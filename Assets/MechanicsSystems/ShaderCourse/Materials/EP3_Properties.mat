@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Properties
+  m_Name: EP3_Properties
   m_Shader: {fileID: 4800000, guid: f3ebeb13e72c8a84d92510ce943f1b58, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
